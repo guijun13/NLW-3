@@ -1,9 +1,17 @@
-import { Request, Response } from 'express';
-import { getRepository } from 'typeorm';
+import { Request, response, Response } from 'express';
+import { getRepository, Index } from 'typeorm';
 import Orphanage from '../models/Orphanage';
 
 export default {
-  async create(req: Request, res: Response){
+  async index(req: Request, res: Response){ // Listar os orfanatos
+    const orphanagesRepository = getRepository(Orphanage);
+
+    const orphanages = await orphanagesRepository.find();
+
+    return res.json(orphanages)
+  },
+
+  async create(req: Request, res: Response){ // Criar um orfanato
     const {
       name,
       latitude,
