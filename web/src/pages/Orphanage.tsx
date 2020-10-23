@@ -52,7 +52,6 @@ export default function Orphanage() {
       <main>
         <div className="orphanage-details">
           <img src={orphanage.images[activeImageIndex].url} alt={orphanage.name} />
-
           <div className="images">
             {orphanage.images.map((image, index) => {
               return (
@@ -112,7 +111,7 @@ export default function Orphanage() {
               { orphanage.open_on_weekends ? (
                 <div className="open-on-weekends">
                   <FiInfo size={32} color="#39CC83" />
-                  Atendemos <br />
+                  Atendemos no<br />
                   fim de semana
                 </div>
               ) : (
